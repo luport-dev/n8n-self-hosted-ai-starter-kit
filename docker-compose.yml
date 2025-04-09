@@ -67,6 +67,8 @@ services:
     hostname: n8n-import
     container_name: n8n-import
     entrypoint: /bin/sh
+    environment:
+      - N8N_RUNNERS_ENABLED=true
     command:
       - "-c"
       - "n8n import:credentials --separate --input=/backup/credentials && n8n import:workflow --separate --input=/backup/workflows"
